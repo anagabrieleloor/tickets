@@ -55,7 +55,7 @@ const users = [
         billing_address: '890 Cedar Court, Lakeshore, FL 33579',
         payment_token: '1B81aMhBDbMxEbTn45crgrGa6D8kCtu2H1',
         payment_verified: 'true'
-    }, 
+    },
     {
         first_name: 'Russ',
         last_name: 'Beesley',
@@ -103,125 +103,174 @@ const tickets = [
         resale: true,
         user_id: 1,
         event_id: 1
-      }, {
+    }, {
         available: false,
         price: 75.07,
         resale: true,
         user_id: 2,
         event_id: 2
-      }, {
+    }, {
         available: false,
         price: 97.64,
         resale: true,
         user_id: 3,
         event_id: 3
-      }, {
+    }, {
         available: false,
         price: 41.27,
         resale: false,
         user_id: 4,
         event_id: 4
-      }, {
+    }, {
         available: false,
         price: 61.76,
         resale: true,
         user_id: 5,
         event_id: 5
-      }, {
+    }, {
         available: false,
         price: 15.84,
         resale: false,
         user_id: 6,
         event_id: 6
-      }, {
+    }, {
         available: false,
         price: 29.13,
         resale: false,
         user_id: 7,
         event_id: 7
-      }, {
+    }, {
         available: false,
         price: 50.5,
         resale: false,
         user_id: 8,
         event_id: 8
-      }, {
+    }, {
         available: false,
         price: 91.62,
         resale: true,
         user_id: 9,
         event_id: 9
-      }, {
+    }, {
         available: false,
         price: 95.5,
         resale: false,
         user_id: 10,
         event_id: 10
-      }
+    }
 ]
 
 // Events
 const events = [
     {
-      name: 'EDM Rave',
-      description: 'EDM festival with laser light show',
-      datetime: '2023-09-19T20:00:00', 
-      category: 'Electronic'
+        name: 'EDM Rave',
+        artists: ['DJ Neon', 'Bass Drop', 'Electric Pulse'],
+        description: 'EDM festival with laser light show',
+        venue: 'Electric Arena',
+        address: '123 Electric Ave, Neon City, NC 12345',
+        datetime: '2023-09-19T20:00:00',
+        category: ['Electronic'],
+        organizer: 'Rave Productions',
+        user_id: 1
     },
     {
-      name: 'Metal Mayhem',
-      description: 'Metal concert with headbanging music',
-      datetime: '2024-02-22T18:30:00', 
-      category: 'Metal'
+        name: 'Metal Mayhem',
+        artists: ['Metallica', 'Slayer', 'Iron Maiden'],
+        description: 'Metal concert with headbanging music',
+        venue: 'Metal Madness Arena',
+        address: '456 Metal Blvd, Heavy Metal City, CA 67890',
+        datetime: '2024-02-22T18:30:00',
+        category: ['Metal'],
+        organizer: 'Metal Works',
+        user_id: 1
     },
     {
-      name: 'Country Hoedown',
-      description: 'Country music festival with cowboy hats and line dancing',
-      datetime: '2023-12-22T15:00:00', 
-      category: 'Country'
+        name: 'Country Hoedown',
+        artists: ['Luke Bryan', 'Carrie Underwood', 'Blake Shelton'],
+        description: 'Country music festival with cowboy hats and line dancing',
+        venue: 'Hoedown Ranch',
+        address: '789 Country Rd, Boot Scootin\' Town, TX 54321',
+        datetime: '2023-12-22T15:00:00',
+        category: ['Country'],
+        organizer: 'Hoedown Productions',
+        user_id: 1
     },
     {
-      name: 'Jazz Fusion Night',
-      description: 'Jazz music extravaganza with special guest appearances',
-      datetime: '2024-03-08T19:00:00', 
-      category: 'Jazz'
+        name: 'Jazz Fusion Night',
+        artists: ['Miles Davis', 'John Coltrane', 'Herbie Hancock'],
+        description: 'Jazz music extravaganza with special guest appearances',
+        venue: 'Jazz Lounge',
+        address: '101 Smooth St, Jazztown, NY 67890',
+        datetime: '2024-03-08T19:00:00',
+        category: ['Jazz'],
+        organizer: 'Smooth Jazz Entertainment',
+        user_id: 1
     },
     {
-      name: 'Classical Symphony Soiree',
-      description: 'Classical symphony orchestra performance',
-      datetime: '2023-03-26T18:00:00', 
-      category: 'Classical'
+        name: 'Classical Symphony Soiree',
+        artists: ['Beethoven', 'Mozart', 'Bach'],
+        description: 'Classical symphony orchestra performance',
+        datetime: '2023-03-26T18:00:00',
+        venue: 'Symphony Hall',
+        address: '789 Classical Ave, Sonata City, CA 45678',
+        category: ['Classical'],
+        organizer: 'Symphony Society',
+        user_id: 1
     },
     {
-      name: 'Rock Fest',
-      description: 'Rock concert with fireworks display',
-      datetime: '2023-06-27T21:00:00', 
-      category: 'Rock'
+        name: 'Rock Fest',
+        artists: ['Led Zeppelin', 'Queen', 'The Rolling Stones'],
+        description: 'Rock concert with fireworks display',
+        venue: 'Rock Arena',
+        address: '321 Rock Rd, Guitar City, WA 89012',
+        datetime: '2023-06-27T21:00:00',
+        category: ['Rock'],
+        organizer: 'Rock n Roll Productions',
+        user_id: 1
     },
     {
-      name: 'Reggae Beach Party',
-      description: 'Reggae music vibes on the beach',
-      datetime: '2023-05-16T17:30:00', 
-      category: 'Reggae'
+        name: 'Reggae Beach Party',
+        artists: ['Bob Marley', 'UB40', 'Jimmy Cliff'],
+        description: 'Reggae music vibes on the beach',
+        venue: 'Beachfront Stage',
+        address: '456 Reggae Beach, Island Paradise, FL 23456',
+        datetime: '2023-05-16T17:30:00',
+        category: ['Reggae'],
+        organizer: 'Island Beats',
+        user_id: 1
     },
     {
-      name: 'Indie Music Showcase',
-      description: 'Indie music showcase at a local cafe',
-      datetime: '2023-04-09T19:30:00', 
-      category: 'Indie'
+        name: 'Indie Music Showcase',
+        artists: ['Arctic Monkeys', 'The Strokes', 'Tame Impala'],
+        description: 'Indie music showcase at a local cafe',
+        venue: 'Indie Cafe',
+        address: '789 Indie Blvd, Hipster Town, OR 34567',
+        datetime: '2023-04-09T19:30:00',
+        category: ['Indie'],
+        organizer: 'Indie Vibes Productions',
+        user_id: 1
     },
     {
-      name: 'Symphonic Electronic Experience',
-      description: 'Electronic music symphony with immersive visuals',
-      datetime: '2023-11-03T22:00:00', 
-      category: 'Electronic'
+        name: 'Symphonic Electronic Experience',
+        artists: ['Daft Punk', 'Deadmau5', 'The Chemical Brothers'],
+        description: 'Electronic music symphony with immersive visuals',
+        venue: 'Electro Dome',
+        address: '101 Electron St, Synth City, TX 56789',
+        datetime: '2023-11-03T22:00:00',
+        category: ['Electronic'],
+        user_id: 1
     },
     {
-      name: 'R&B Soul Night',
-      description: 'R&B soul music night with smooth beats',
-      datetime: '2023-08-14T20:30:00', 
-      category: 'R&B'
+        name: 'R&B Soul Night',
+        artists: ['Marvin Gaye', 'Aretha Franklin', 'Stevie Wonder'],
+        description: 'R&B soul music night with smooth beats',
+        venue: 'Soul Lounge',
+        address: '123 Soulful Ave, Groove City, GA 12345',
+        datetime: '2023-08-14T20:30:00',
+        category: ['R&B'],
+        organizer: 'Soulful Sounds Events',
+        user_id: 1
     }
-  ];
-  
-  module.exports = { users, tickets, events };
+];
+
+module.exports = { users, tickets, events };
