@@ -1,12 +1,12 @@
 // Require Client from pg
 const { Client } = require(`pg`);
 
-
-const dbName = `tixoxo`
-
-//Establishing connect to database
+// Establishing connect to database
+const tixoxo = `tixoxo`
 const client = new Client(`postgres://localhost:5432/${tixoxo}`)
 
+// Connect to the database
+client.connect();
 
-//Export for use in other files
+// Export for use in other files
 module.exports = client;

@@ -164,7 +164,7 @@ const tickets = [
 const events = [
     {
         name: 'EDM Rave',
-        artists: ['DJ Neon', 'Bass Drop', 'Electric Pulse'],
+        artist: ['DJ Neon', 'Bass Drop', 'Electric Pulse'],
         description: 'EDM festival with laser light show',
         venue: 'Electric Arena',
         address: '123 Electric Ave, Neon City, NC 12345',
@@ -175,7 +175,7 @@ const events = [
     },
     {
         name: 'Metal Mayhem',
-        artists: ['Metallica', 'Slayer', 'Iron Maiden'],
+        artist: ['Metallica', 'Slayer', 'Iron Maiden'],
         description: 'Metal concert with headbanging music',
         venue: 'Metal Madness Arena',
         address: '456 Metal Blvd, Heavy Metal City, CA 67890',
@@ -186,7 +186,7 @@ const events = [
     },
     {
         name: 'Country Hoedown',
-        artists: ['Luke Bryan', 'Carrie Underwood', 'Blake Shelton'],
+        artist: ['Luke Bryan', 'Carrie Underwood', 'Blake Shelton'],
         description: 'Country music festival with cowboy hats and line dancing',
         venue: 'Hoedown Ranch',
         address: '789 Country Rd, Boot Scootin\' Town, TX 54321',
@@ -197,7 +197,7 @@ const events = [
     },
     {
         name: 'Jazz Fusion Night',
-        artists: ['Miles Davis', 'John Coltrane', 'Herbie Hancock'],
+        artist: ['Miles Davis', 'John Coltrane', 'Herbie Hancock'],
         description: 'Jazz music extravaganza with special guest appearances',
         venue: 'Jazz Lounge',
         address: '101 Smooth St, Jazztown, NY 67890',
@@ -208,7 +208,7 @@ const events = [
     },
     {
         name: 'Classical Symphony Soiree',
-        artists: ['Beethoven', 'Mozart', 'Bach'],
+        artist: ['Beethoven', 'Mozart', 'Bach'],
         description: 'Classical symphony orchestra performance',
         datetime: '2023-03-26T18:00:00',
         venue: 'Symphony Hall',
@@ -219,7 +219,7 @@ const events = [
     },
     {
         name: 'Rock Fest',
-        artists: ['Led Zeppelin', 'Queen', 'The Rolling Stones'],
+        artist: ['Led Zeppelin', 'Queen', 'The Rolling Stones'],
         description: 'Rock concert with fireworks display',
         venue: 'Rock Arena',
         address: '321 Rock Rd, Guitar City, WA 89012',
@@ -230,7 +230,7 @@ const events = [
     },
     {
         name: 'Reggae Beach Party',
-        artists: ['Bob Marley', 'UB40', 'Jimmy Cliff'],
+        artist: ['Bob Marley', 'UB40', 'Jimmy Cliff'],
         description: 'Reggae music vibes on the beach',
         venue: 'Beachfront Stage',
         address: '456 Reggae Beach, Island Paradise, FL 23456',
@@ -241,7 +241,7 @@ const events = [
     },
     {
         name: 'Indie Music Showcase',
-        artists: ['Arctic Monkeys', 'The Strokes', 'Tame Impala'],
+        artist: ['Arctic Monkeys', 'The Strokes', 'Tame Impala'],
         description: 'Indie music showcase at a local cafe',
         venue: 'Indie Cafe',
         address: '789 Indie Blvd, Hipster Town, OR 34567',
@@ -252,7 +252,7 @@ const events = [
     },
     {
         name: 'Symphonic Electronic Experience',
-        artists: ['Daft Punk', 'Deadmau5', 'The Chemical Brothers'],
+        artist: ['Daft Punk', 'Deadmau5', 'The Chemical Brothers'],
         description: 'Electronic music symphony with immersive visuals',
         venue: 'Electro Dome',
         address: '101 Electron St, Synth City, TX 56789',
@@ -262,7 +262,7 @@ const events = [
     },
     {
         name: 'R&B Soul Night',
-        artists: ['Marvin Gaye', 'Aretha Franklin', 'Stevie Wonder'],
+        artist: ['Marvin Gaye', 'Aretha Franklin', 'Stevie Wonder'],
         description: 'R&B soul music night with smooth beats',
         venue: 'Soul Lounge',
         address: '123 Soulful Ave, Groove City, GA 12345',
