@@ -2,48 +2,48 @@ const client = require('../client')
 
 
 //POST - /api/users
-const createUser = async ({ first_name, last_name, email, password, billing_address, payment_token, payment_verified }) => {
-    try {
-        const {
-            rows: [user],
-            //INSERT SQL query
-        } = await client.query(
-            `
-                INSERT INTO users(first_name, last_name, email, password, billing_address, payment_token, payment_verified)
-                VALUES($1, $2, $3, $4, $5, $6, $7)
-                RETURNING *;
-            `,
-            //Hook parameteres to variables
-            [first_name, last_name, email, password, billing_address, payment_token, payment_verified]
-        )
-        return user
-    } catch (error) {
-        throw error
-    }
-}
-
-// const createUser = async ({ username, password }) => {
+// const createUser = async ({ first_name, last_name, email, password, billing_address, payment_token, payment_verified }) => {
 //     try {
 //         const {
 //             rows: [user],
-//             //INSER SQL query
+//             //INSERT SQL query
 //         } = await client.query(
-//             // INSERT INTO table(column1, column2, etc)
-//             //VALUES (var1, etc)
-//             //RETURNING everything
 //             `
-//                 INSERT INTO users(username, password)
-//                 VALUES($1, $2)
+//                 INSERT INTO users(first_name, last_name, email, password, billing_address, payment_token, payment_verified)
+//                 VALUES($1, $2, $3, $4, $5, $6, $7)
 //                 RETURNING *;
 //             `,
-//             //hook parameteres to variables
-//             [username, password]
+//             //Hook parameteres to variables
+//             [first_name, last_name, email, password, billing_address, payment_token, payment_verified]
 //         )
 //         return user
 //     } catch (error) {
 //         throw error
 //     }
 // }
+
+const createUser = async ({ email, password, first_name, last_name }) => {
+    try {
+        const {
+            rows: [user],
+            //INSER SQL query
+        } = await client.query(
+            // INSERT INTO table(column1, column2, etc)
+            //VALUES (var1, etc)
+            //RETURNING everything
+            `
+                INSERT INTO users(email, password, first_name, last_name)
+                VALUES($1, $2, $3, $4)
+                RETURNING *;
+            `,
+            //hook parameteres to variables
+            [email, password, first_name, last_name]
+        )
+        return user
+    } catch (error) {
+        throw error
+    }
+}
 
 //GET - /api/users - get all users
 const getAllUsers = async () => {

@@ -22,13 +22,13 @@ const createTicket = async ({ available, price, resale, user, event }) => {
     }
 }
 
-//GET - /api/ticket - get all ticket
+//GET - /api/tickets - get all tickets
 const getAllTickets = async () => {
     try {
         const { rows }
             = await client.query(`
             SELECT *
-            FROM ticket;
+            FROM tickets;
         `)
         return rows
     } catch (error) {
@@ -66,6 +66,20 @@ const getTicketByUserId = async (user_id) => {
     }
 }
 
+//GET - /api/tickets/:ticket_id
+const getTicketByTicketId = async (ticket_id) => {
+    try {
+        const { rows: [ticket], }
+            = await client.query(`
+        SELECT * 
+        FROM tickets
+        WHERE ticket_id = ${ticket_id};
+        `);
+        return ticket;
+    } catch (error) {
+        throw error;
+    }
+}
 
 // PUT - /api/users/:user_id - update a user
 // const updateUser = async (user_id, updatedUserData) => {
@@ -107,4 +121,4 @@ const getTicketByUserId = async (user_id) => {
 
 
 
-module.exports = { createTicket, getAllTickets, getTicketByEventId, getTicketByUserId }
+module.exports = { createTicket, getAllTickets, getTicketByEventId, getTicketByTicketId, getTicketByUserId }

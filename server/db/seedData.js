@@ -101,62 +101,62 @@ const tickets = [
         available: false,
         price: 41.13,
         resale: true,
-        user_id: 1,
-        event_id: 1
+        user: 1,
+        event: 1
     }, {
         available: false,
         price: 75.07,
         resale: true,
-        user_id: 2,
-        event_id: 2
+        user: 2,
+        event: 2
     }, {
         available: false,
         price: 97.64,
         resale: true,
-        user_id: 3,
-        event_id: 3
+        user: 3,
+        event: 3
     }, {
         available: false,
         price: 41.27,
         resale: false,
-        user_id: 4,
-        event_id: 4
+        user: 4,
+        event: 4
     }, {
         available: false,
         price: 61.76,
         resale: true,
-        user_id: 5,
-        event_id: 5
+        user: 5,
+        event: 5
     }, {
         available: false,
         price: 15.84,
         resale: false,
-        user_id: 6,
-        event_id: 6
+        user: 6,
+        event: 6
     }, {
         available: false,
         price: 29.13,
         resale: false,
-        user_id: 7,
-        event_id: 7
+        user: 7,
+        event: 7
     }, {
         available: false,
         price: 50.5,
         resale: false,
-        user_id: 8,
-        event_id: 8
+        user: 8,
+        event: 8
     }, {
         available: false,
         price: 91.62,
         resale: true,
-        user_id: 9,
-        event_id: 9
+        user: 9,
+        event: 9
     }, {
         available: false,
         price: 95.5,
         resale: false,
-        user_id: 10,
-        event_id: 10
+        user: 10,
+        event: 10
     }
 ]
 
@@ -171,7 +171,7 @@ const events = [
         datetime: '2023-09-19T20:00:00',
         category: ['Electronic'],
         organizer: 'Rave Productions',
-        user_id: 1
+        creator: 1
     },
     {
         name: 'Metal Mayhem',
@@ -182,7 +182,7 @@ const events = [
         datetime: '2024-02-22T18:30:00',
         category: ['Metal'],
         organizer: 'Metal Works',
-        user_id: 1
+        creator: 1
     },
     {
         name: 'Country Hoedown',
@@ -193,7 +193,7 @@ const events = [
         datetime: '2023-12-22T15:00:00',
         category: ['Country'],
         organizer: 'Hoedown Productions',
-        user_id: 1
+        creator: 1
     },
     {
         name: 'Jazz Fusion Night',
@@ -204,7 +204,7 @@ const events = [
         datetime: '2024-03-08T19:00:00',
         category: ['Jazz'],
         organizer: 'Smooth Jazz Entertainment',
-        user_id: 1
+        creator: 1
     },
     {
         name: 'Classical Symphony Soiree',
@@ -215,7 +215,7 @@ const events = [
         address: '789 Classical Ave, Sonata City, CA 45678',
         category: ['Classical'],
         organizer: 'Symphony Society',
-        user_id: 1
+        creator: 1
     },
     {
         name: 'Rock Fest',
@@ -226,7 +226,7 @@ const events = [
         datetime: '2023-06-27T21:00:00',
         category: ['Rock'],
         organizer: 'Rock n Roll Productions',
-        user_id: 1
+        creator: 1
     },
     {
         name: 'Reggae Beach Party',
@@ -237,7 +237,7 @@ const events = [
         datetime: '2023-05-16T17:30:00',
         category: ['Reggae'],
         organizer: 'Island Beats',
-        user_id: 1
+        creator: 1
     },
     {
         name: 'Indie Music Showcase',
@@ -248,7 +248,7 @@ const events = [
         datetime: '2023-04-09T19:30:00',
         category: ['Indie'],
         organizer: 'Indie Vibes Productions',
-        user_id: 1
+        creator: 1
     },
     {
         name: 'Symphonic Electronic Experience',
@@ -258,7 +258,7 @@ const events = [
         address: '101 Electron St, Synth City, TX 56789',
         datetime: '2023-11-03T22:00:00',
         category: ['Electronic'],
-        user_id: 1
+        creator: 1
     },
     {
         name: 'R&B Soul Night',
@@ -269,7 +269,7 @@ const events = [
         datetime: '2023-08-14T20:30:00',
         category: ['R&B'],
         organizer: 'Soulful Sounds Events',
-        user_id: 1
+        creator: 1
     }
 ];
 
