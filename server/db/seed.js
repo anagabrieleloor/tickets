@@ -48,7 +48,8 @@ const createTables = async () => {
               datetime TIMESTAMP,
               category text [],
               organizer text,
-              creator INTEGER REFERENCES users(user_id)          
+              creator INTEGER REFERENCES users(user_id),
+              available_tickets INTEGER          
           );
           CREATE TABLE tickets (
             ticket_id SERIAL PRIMARY KEY,
@@ -75,12 +76,30 @@ const createInitialUsers = async () => {
 };
 
 // Create Events
+// const createInitialEvents = async () => {
+//   try {
+//     for (const event of events) {
+//       await createEvent(event);
+//     }
+//     console.log("Created event");
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 const createInitialEvents = async () => {
   try {
     for (const event of events) {
-      await createEvent(event);
+      // Create each event with available_tickets field
+      const { available_tickets, ...eventData } = event;
+      const createdEvent = await createEvent(eventData);
+      console.log("Created event:", createdEvent);
+
+      // Create tickets for the event
+      for (let i = 0; i < available_tickets; i++) {
+        await createTicket({ available: true, price: eventData.price, event: createdEvent.event_id });
+      }
+      console.log(`Created ${available_tickets} tickets for event ${createdEvent.name}`);
     }
-    console.log("Created event");
   } catch (error) {
     throw error;
   }

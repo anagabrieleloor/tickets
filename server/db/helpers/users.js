@@ -22,7 +22,8 @@ const client = require('../client')
 //     }
 // }
 
-const createUser = async ({ email, password, first_name, last_name }) => {
+//
+const createUser = async ({ email, password, first_name, last_name, billing_address, payment_token, payment_verified }) => {
     try {
         const {
             rows: [user],
@@ -32,12 +33,12 @@ const createUser = async ({ email, password, first_name, last_name }) => {
             //VALUES (var1, etc)
             //RETURNING everything
             `
-                INSERT INTO users(email, password, first_name, last_name)
-                VALUES($1, $2, $3, $4)
+                INSERT INTO users(email, password, first_name, last_name, billing_address, payment_token, payment_verified)
+                VALUES($1, $2, $3, $4, $5, $6, $7)
                 RETURNING *;
             `,
             //hook parameteres to variables
-            [email, password, first_name, last_name]
+            [email, password, first_name, last_name, billing_address, payment_token, payment_verified]
         )
         return user
     } catch (error) {

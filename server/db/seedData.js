@@ -171,7 +171,8 @@ const events = [
         datetime: '2023-09-19T20:00:00',
         category: ['Electronic'],
         organizer: 'Rave Productions',
-        creator: 1
+        creator: 1,
+        available_tickets: 100
     },
     {
         name: 'Metal Mayhem',
@@ -182,7 +183,8 @@ const events = [
         datetime: '2024-02-22T18:30:00',
         category: ['Metal'],
         organizer: 'Metal Works',
-        creator: 1
+        creator: 1,
+        available_tickets: 10
     },
     {
         name: 'Country Hoedown',
@@ -193,7 +195,8 @@ const events = [
         datetime: '2023-12-22T15:00:00',
         category: ['Country'],
         organizer: 'Hoedown Productions',
-        creator: 1
+        creator: 1,
+        available_tickets: 90
     },
     {
         name: 'Jazz Fusion Night',
@@ -204,7 +207,8 @@ const events = [
         datetime: '2024-03-08T19:00:00',
         category: ['Jazz'],
         organizer: 'Smooth Jazz Entertainment',
-        creator: 1
+        creator: 1,
+        available_tickets: 50
     },
     {
         name: 'Classical Symphony Soiree',
@@ -215,7 +219,8 @@ const events = [
         address: '789 Classical Ave, Sonata City, CA 45678',
         category: ['Classical'],
         organizer: 'Symphony Society',
-        creator: 1
+        creator: 1,
+        available_tickets: 60
     },
     {
         name: 'Rock Fest',
@@ -226,7 +231,8 @@ const events = [
         datetime: '2023-06-27T21:00:00',
         category: ['Rock'],
         organizer: 'Rock n Roll Productions',
-        creator: 1
+        creator: 1,
+        available_tickets: 70
     },
     {
         name: 'Reggae Beach Party',
@@ -237,7 +243,8 @@ const events = [
         datetime: '2023-05-16T17:30:00',
         category: ['Reggae'],
         organizer: 'Island Beats',
-        creator: 1
+        creator: 1,
+        available_tickets: 80
     },
     {
         name: 'Indie Music Showcase',
@@ -248,7 +255,8 @@ const events = [
         datetime: '2023-04-09T19:30:00',
         category: ['Indie'],
         organizer: 'Indie Vibes Productions',
-        creator: 1
+        creator: 1,
+        available_tickets: 100
     },
     {
         name: 'Symphonic Electronic Experience',
@@ -258,7 +266,8 @@ const events = [
         address: '101 Electron St, Synth City, TX 56789',
         datetime: '2023-11-03T22:00:00',
         category: ['Electronic'],
-        creator: 1
+        creator: 1,
+        available_tickets: 40
     },
     {
         name: 'R&B Soul Night',
@@ -269,7 +278,8 @@ const events = [
         datetime: '2023-08-14T20:30:00',
         category: ['R&B'],
         organizer: 'Soulful Sounds Events',
-        creator: 1
+        creator: 1,
+        available_tickets: 50
     }
 ];
 

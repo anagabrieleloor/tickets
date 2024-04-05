@@ -1,6 +1,6 @@
 const client = require("../client");
 
-//Create Event
+// Create Event
 const createEvent = async ({
     name,
     artist,
@@ -11,10 +11,11 @@ const createEvent = async ({
     category,
     organizer,
     creator,
+    available_tickets 
 }) => {
     try {
         const {
-            rows: [events],
+            rows: [event],
         } = await client.query(
             `
                 INSERT INTO events(
@@ -26,9 +27,10 @@ const createEvent = async ({
                     datetime,
                     category,
                     organizer,
-                    creator
+                    creator,
+                    available_tickets 
                     )
-                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)
+                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
                 RETURNING *;
             `,
             [
@@ -41,15 +43,16 @@ const createEvent = async ({
                 category,
                 organizer,
                 creator,
+                available_tickets 
             ]
         );
-        return events;
+        return event;
     } catch (error) {
         throw error;
     }
 };
 
-//Get all events
+// Get all events
 const getAllEvents = async () => {
     try {
         const { rows } = await client.query(`
@@ -62,13 +65,10 @@ const getAllEvents = async () => {
     }
 };
 
-
-//Get event by ID
+// Get event by ID
 const getEventById = async (event_id) => {
     try {
-        const {
-            rows: [events],
-        } = await client.query(
+        const { rows: [event] } = await client.query(
             `
               SELECT *
               FROM events
@@ -76,13 +76,11 @@ const getEventById = async (event_id) => {
       `,
             [event_id]
         );
-        return events;
+        return event;
     } catch (error) {
         throw error;
     }
 };
-
-
 
 const updateEvent = async (event_id, updatedEventData) => {
     try {
@@ -132,19 +130,17 @@ const updateEvent = async (event_id, updatedEventData) => {
 
 const deleteEvent = async (event_id) => {
     try {
-        client.query(
+        await client.query(
             `
       DELETE FROM rsvps
-      WHERE event_id = $1
-      RETURNING *;
+      WHERE event_id = $1;
       `,
             [event_id]
         );
-        client.query(
+        await client.query(
             `
       DELETE FROM comments
-      WHERE event_id = $1
-      RETURNING *;
+      WHERE event_id = $1;
       `,
             [event_id]
         );
@@ -156,6 +152,7 @@ const deleteEvent = async (event_id) => {
       `,
             [event_id]
         );
+        return result.rows[0];
     } catch (error) {
         throw error;
     }
