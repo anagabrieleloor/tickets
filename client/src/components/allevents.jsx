@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchAllEvents } from "../API"
+import { fetchAllEvents } from "../api/events"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import {Link} from "react-router-dom";
 
