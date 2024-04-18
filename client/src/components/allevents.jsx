@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchAllEvents } from "../api/events"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import {Link} from "react-router-dom";
-
+import kuromi from '../assets/kuromi-pfp-3.jpg'
 
 export default function AllEvents() {
   const [events, setEvents] = useState([]);
@@ -27,13 +27,13 @@ return (
     {events.map((event) => ( 
       <div className="card" key={event.event_id}> 
       <Link to={`/events/${event.event_id}`}>
-        <img src={event.photos} alt={`${event.first_name}'s Profile`} id="event-profile-image" />
-        <p className="card__name">{event.name}</p>
+        <img src={kuromi} alt={`${event.name}'s Details`} id="event-profile-image" />
+        <h2>{event.name}</h2>
         <div className="grid-container">
           <div className="grid-child-posts">
             <p>artist: {event.artist}</p>
             <p>description: {event.description}</p>
-            <p>location: {event.location}</p>
+            <p>venue: {event.venue}</p>
             <p>address: {event.address}</p>
             <p>date: {event.datetime}</p>
           </div>

@@ -53,7 +53,7 @@ export async function updateEvent(event_id, updatedEventData) {
   }
 
   //Get event by event_id
-  export async function getEventById(event_id) {
+  export async function fetchEventById(event_id) {
     const resp = await fetch(`${BASE_URL}/events/${event_id}`);
     const json = await resp.json();
     console.log("Event:", json)
