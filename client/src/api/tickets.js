@@ -37,7 +37,7 @@ export async function createTicket(available, price, resale, user, event) {
 
 
   //Get ticket by ticket_id
-  export async function getTicketById(ticket_id) {
+  export async function fetchTicketById(ticket_id) {
     const resp = await fetch(`${BASE_URL}/tickets/${ticket_id}`);
     const json = await resp.json();
     console.log("Ticket:", json)
@@ -53,7 +53,7 @@ export async function createTicket(available, price, resale, user, event) {
   }
 
      //Get ticket by user_id
-     export async function getTicketByEventId(user_id) {
+     export async function getTicketByUserId(user_id) {
         const resp = await fetch(`${BASE_URL}/tickets/${user_id}`);
         const json = await resp.json();
         console.log("Ticket:", json)

@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import AllEvents from "./components/allevents"
 import EventDetails from "./components/event"
 import Navbar from "./components/navbar";
+import TicketDetails from "./components/ticket";
 
 
 
@@ -19,6 +20,7 @@ function App() {
       <Route>
         <Route path="/events" element={<AllEvents />} />
         <Route path="/events/:event_id" element={<EventDetails />} />
+        <Route path="/tickets/:ticket_id" element={<TicketDetails />} />
       </Route>
     </Routes>
  

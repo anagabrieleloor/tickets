@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { createTicket, getAllTickets, getTicketByEventId, getTicketByUserId } = require('../db/helpers/tickets');
+const { createTicket, getAllTickets, getTicketByTicketId, getTicketByEventId, getTicketByUserId } = require('../db/helpers/tickets');
 
 
 //GET - api/tickets - get all tickets
