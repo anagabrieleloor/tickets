@@ -1,7 +1,7 @@
 const BASE_URL = 'http://localhost:8088/api';
 
 //Get all events
-export async function getAllEvents() {
+export async function fetchAllEvents() {
     try {
         const response = await fetch(`${BASE_URL}/events`);
         const result = await response.json();
