@@ -147,6 +147,20 @@ const loginUser = async (email, password) => {
     }
 };
 
+//post 
+const getUserByEmail = async (email) => {
+    const {
+      rows: [user],
+    } = await client.query(
+      `
+      SELECT * FROM users
+      WHERE users.email = $1
+      `,
+      [email]
+    )
+    return user
+  }
+
 
 //GET - api/users/:session_id - current user profile 
 const currentUser = async (user_id) => {
@@ -171,4 +185,4 @@ const currentUser = async (user_id) => {
 
 
 
-module.exports = { createUser, getAllUsers, getUserById, updateUser, deleteUser, loginUser, currentUser }
+module.exports = { createUser, getAllUsers, getUserById, updateUser, deleteUser, loginUser, currentUser, getUserByEmail }

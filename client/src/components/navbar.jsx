@@ -13,12 +13,13 @@ export default function Navbar({ token, setToken }) {
                
                     <>
                     <Link to="/events">♡ events</Link>
-                <Link to="/users/:user_id/messages">♡ ticket info</Link>
-                <Link to="/swipes">♡ user dashboard</Link>
+                <Link to="/tickets/:ticket_id">♡ ticket info</Link>
+                <Link to="/dashboard">♡ user dashboard</Link>
 
                     </>
                
                     // <Link to="/users/login">log in</Link>
+                    <Link to="/users/signup">register</Link>
                     <></>
                 
             </div>
