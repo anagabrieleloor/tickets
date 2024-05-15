@@ -10,6 +10,7 @@ import Login from "./components/login";
 import Home from "./components/landing";
 import SignUp from "./components/register";
 import SuccessMessage from "./components/returnurl";
+import Dashboard from "./components/dash";
 
 
 
@@ -37,7 +38,7 @@ function App() {
         <Route path="/tickets/:ticket_id" element={<TicketDetails />} />
         <Route path="/users/login" element={<Login token={token} setToken={setToken} user_id={user_id} />} />
         <Route path="/users/signup" element={<SignUp setToken={setToken}/>} />
-
+        <Route path="/dashboard" element={<Dashboard token={token} user_id={user_id}/>} />
         <Route path="/tickets/success" element={<SuccessMessage />} />
       
       </Route>
