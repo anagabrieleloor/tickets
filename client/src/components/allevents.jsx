@@ -38,7 +38,9 @@ return (
             <p>date: {event.datetime}</p>
           </div>
           <div className="grid-child-followers">
-            <p>location: {event.location}</p><br />
+            <p>location: {event.location}</p>
+            <p>price: {event.price}</p>
+            <br />
           </div>
         
         </div>

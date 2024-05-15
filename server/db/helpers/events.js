@@ -11,7 +11,8 @@ const createEvent = async ({
     category,
     organizer,
     creator,
-    available_tickets 
+    available_tickets,
+    price 
 }) => {
     try {
         const {
@@ -28,9 +29,10 @@ const createEvent = async ({
                     category,
                     organizer,
                     creator,
-                    available_tickets 
+                    available_tickets,
+                    price 
                     )
-                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) 
+                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) 
                 RETURNING *;
             `,
             [
@@ -43,7 +45,8 @@ const createEvent = async ({
                 category,
                 organizer,
                 creator,
-                available_tickets 
+                available_tickets,
+                price 
             ]
         );
         return event;
@@ -98,26 +101,23 @@ const updateEvent = async (event_id, updatedEventData) => {
         datetime = $6,
         category = $7,
         organizer = $8,
-        creator = $9
-        WHERE event_id = $10
+        creator = $9,
+        price = $10,
+        WHERE event_id = $11,
         RETURNING *;
         `,
             [
                 updatedEventData.name,
                 updatedEventData.artist,
                 updatedEventData.description,
-                updatedEventData.location,
+                updatedEventData.venue,
                 updatedEventData.address,
                 updatedEventData.datetime,
-                updatedEventData.timezone,
-                updatedEventData.virtual,
-                updatedEventData.comments,
-                updatedEventData.topic,
-                updatedEventData.duration,
-                updatedEventData.gender,
-                updatedEventData.group,
-                updatedEventData.meeting_link,
-                updatedEventData.host_id,
+                updatedEventData.category,
+                updatedEventData.organizer,
+                updatedEventData.creator,
+                updatedEventData.price,
+           
 
                 event_id,
             ]

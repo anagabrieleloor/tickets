@@ -49,16 +49,17 @@ const createTables = async () => {
               category text [],
               organizer text,
               creator INTEGER REFERENCES users(user_id),
-              available_tickets INTEGER          
+              available_tickets INTEGER,
+              price NUMERIC           
           );
           CREATE TABLE tickets (
             ticket_id SERIAL PRIMARY KEY,
             available BOOLEAN DEFAULT TRUE,
-            price numeric, 
-            resale boolean,
+            resale BOOLEAN,
             "user" INTEGER REFERENCES users(user_id),
             event INTEGER REFERENCES events(event_id)
         );
+        
       `);
   console.log("Tables built!");
 };

@@ -95,70 +95,7 @@ const users = [
     },
 ]
 
-//Tickets
-const tickets = [
-    {
-        available: false,
-        price: 41.13,
-        resale: true,
-        user: 1,
-        event: 1
-    }, {
-        available: false,
-        price: 75.07,
-        resale: true,
-        user: 2,
-        event: 2
-    }, {
-        available: false,
-        price: 97.64,
-        resale: true,
-        user: 3,
-        event: 3
-    }, {
-        available: false,
-        price: 41.27,
-        resale: false,
-        user: 4,
-        event: 4
-    }, {
-        available: false,
-        price: 61.76,
-        resale: true,
-        user: 5,
-        event: 5
-    }, {
-        available: false,
-        price: 15.84,
-        resale: false,
-        user: 6,
-        event: 6
-    }, {
-        available: false,
-        price: 29.13,
-        resale: false,
-        user: 7,
-        event: 7
-    }, {
-        available: false,
-        price: 50.5,
-        resale: false,
-        user: 8,
-        event: 8
-    }, {
-        available: false,
-        price: 91.62,
-        resale: true,
-        user: 9,
-        event: 9
-    }, {
-        available: false,
-        price: 95.5,
-        resale: false,
-        user: 10,
-        event: 10
-    }
-]
+
 
 // Events
 const events = [
@@ -172,7 +109,8 @@ const events = [
         category: ['Electronic'],
         organizer: 'Rave Productions',
         creator: 1,
-        available_tickets: 100
+        available_tickets: 100,
+        price: 41.13
     },
     {
         name: 'Metal Mayhem',
@@ -184,7 +122,8 @@ const events = [
         category: ['Metal'],
         organizer: 'Metal Works',
         creator: 1,
-        available_tickets: 10
+        available_tickets: 10,
+        price: 75.07
     },
     {
         name: 'Country Hoedown',
@@ -196,7 +135,8 @@ const events = [
         category: ['Country'],
         organizer: 'Hoedown Productions',
         creator: 1,
-        available_tickets: 90
+        available_tickets: 90,
+        price: 97.64
     },
     {
         name: 'Jazz Fusion Night',
@@ -208,7 +148,8 @@ const events = [
         category: ['Jazz'],
         organizer: 'Smooth Jazz Entertainment',
         creator: 1,
-        available_tickets: 50
+        available_tickets: 50,
+        price: 41.27
     },
     {
         name: 'Classical Symphony Soiree',
@@ -220,7 +161,8 @@ const events = [
         category: ['Classical'],
         organizer: 'Symphony Society',
         creator: 1,
-        available_tickets: 60
+        available_tickets: 60,
+        price: 61.76
     },
     {
         name: 'Rock Fest',
@@ -232,7 +174,8 @@ const events = [
         category: ['Rock'],
         organizer: 'Rock n Roll Productions',
         creator: 1,
-        available_tickets: 70
+        available_tickets: 70,
+        price: 15.84
     },
     {
         name: 'Reggae Beach Party',
@@ -244,7 +187,8 @@ const events = [
         category: ['Reggae'],
         organizer: 'Island Beats',
         creator: 1,
-        available_tickets: 80
+        available_tickets: 80,
+        price: 29.13
     },
     {
         name: 'Indie Music Showcase',
@@ -256,7 +200,8 @@ const events = [
         category: ['Indie'],
         organizer: 'Indie Vibes Productions',
         creator: 1,
-        available_tickets: 100
+        available_tickets: 100,
+        price: 50.5
     },
     {
         name: 'Symphonic Electronic Experience',
@@ -267,7 +212,8 @@ const events = [
         datetime: '2023-11-03T22:00:00',
         category: ['Electronic'],
         creator: 1,
-        available_tickets: 40
+        available_tickets: 40,
+        price: 91.62
     },
     {
         name: 'R&B Soul Night',
@@ -279,7 +225,72 @@ const events = [
         category: ['R&B'],
         organizer: 'Soulful Sounds Events',
         creator: 1,
-        available_tickets: 50
+        available_tickets: 50,
+        price: 95.5
+    }
+]
+
+//Tickets
+const tickets = [
+    {
+        available: false,
+        resale: true,
+        user: 1,
+        event: 1
+    }, 
+    {
+        available: false,
+        resale: true,
+        user: 2,
+        event: 2
+    }, 
+    {
+        available: false,
+        resale: true,
+        user: 3,
+        event: 3
+    }, 
+    {
+        available: false,
+        resale: false,
+        user: 4,
+        event: 4
+    }, 
+    {
+        available: false,
+        resale: true,
+        user: 5,
+        event: 5
+    }, 
+    {
+        available: false,
+        resale: false,
+        user: 6,
+        event: 6
+    }, 
+    {
+        available: false,
+        resale: false,
+        user: 7,
+        event: 7
+    }, 
+    {
+        available: false,
+        resale: false,
+        user: 8,
+        event: 8
+    }, 
+    {
+        available: false,
+        resale: true,
+        user: 9,
+        event: 9
+    }, 
+    {
+        available: false,
+        resale: false,
+        user: 10,
+        event: 10
     }
 ];
 

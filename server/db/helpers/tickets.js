@@ -1,7 +1,7 @@
 const client = require('../client');
 
 // POST - /api/tickets
-const createTicket = async ({ available, price, resale, user, event }) => {
+const createTicket = async ({ available, resale, user, event }) => {
     try {
         // Decrement available_tickets count
         await client.query(
@@ -17,11 +17,11 @@ const createTicket = async ({ available, price, resale, user, event }) => {
             rows: [ticket],
         } = await client.query(
             `
-                INSERT INTO tickets(available, price, resale, "user", event)
-                VALUES($1, $2, $3, $4, $5)
+                INSERT INTO tickets(available, resale, "user", event)
+                VALUES($1, $2, $3, $4)
                 RETURNING *;
             `,
-            [available, price, resale, user, event]
+            [available, resale, user, event]
         );
         return ticket;
     } catch (error) {
@@ -74,15 +74,17 @@ const getTicketByUserId = async (user_id) => {
 const getTicketByTicketId = async (ticket_id) => {
     try {
         const { rows: [ticket] } = await client.query(`
-            SELECT * 
-            FROM tickets
-            WHERE ticket_id = $1;
+            SELECT t.*, e.price AS event_price
+            FROM tickets t
+            JOIN events e ON t.event = e.event_id
+            WHERE t.ticket_id = $1;
         `, [ticket_id]);
         return ticket;
     } catch (error) {
         throw error;
     }
 };
+
 
 module.exports = {
     createTicket,
