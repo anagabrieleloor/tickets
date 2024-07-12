@@ -17,7 +17,7 @@ export async function fetchAllEvents() {
 //Create event
 export async function createEvent(eventData) {
     try {
-      const resp = await fetch(`${BASE_URL}/events`, {
+      const resp = await fetch(`${BASE_URL}/events/post_event`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

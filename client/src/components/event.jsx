@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { fetchEventById } from "../api/events";
 import kuromi from '../assets/kuromi-pfp-3.jpg';
 import StripeContainer from "./stripecontainer";
+import eventpic from '../assets/vibeybg.webp'
+
 
 export default function EventDetails() {
     const { event_id } = useParams();
@@ -29,28 +31,44 @@ export default function EventDetails() {
     }, [event_id]);
 
     return (
-        <div className="container">
-            {error && <p>{error}</p>}
-            {event && (
-                <div className="card">
-                    <img src={kuromi} alt={`${event.name}'s Details`} id="event-profile-image" />
-                    <h2>{event.name}</h2>
-                    <div className="grid-container">
-                        <div className="grid-child-posts">
-                            <p>artist: {event.artist}</p>
-                            <p>description: {event.description}</p>
-                            <p>venue: {event.venue}</p>
-                            <p>address: {event.address}</p>
-                            <p>date: {event.datetime}</p>
-                            <p>price: {event.price}</p>
-                        </div>
-                        <div className="grid-child-followers">
-                            <p>location: {event.location}</p><br />
-                        </div>
-                    </div>
-                </div>
-            )}
-            <StripeContainer /> 
-        </div>
+        <section id="features" className="features section">
+
+  {/* Section Title */}
+  <div className="container section-title aos-init aos-animate" data-aos="fade-up">
+    <h2>Event Details</h2>
+    <p>Mark your calendar, you've got plans.</p>
+  </div>
+  {/* End Section Title */}
+
+  <div className="container">
+
+    
+    {/* Features Item */}
+    {error && <p>{error}</p>}
+             {event && (
+    <div className="row gy-4 align-items-stretch justify-content-between features-item">
+      <div className="col-lg-6 d-flex align-items-center features-img-bg aos-init aos-animate" data-aos="zoom-out">
+        <img src={eventpic} className="img-fluid" alt="" />
+      </div>
+      <div className="col-lg-5 d-flex justify-content-center flex-column aos-init aos-animate" data-aos="fade-up">
+        <h3>{event.name}</h3>
+        <p>{event.description}</p>
+        <ul>
+          <li><i className="bi bi-check"></i> <span>{event.artist}.</span></li>
+          <li><i className="bi bi-check"></i><span> {event.venue}</span></li>
+          <li><i className="bi bi-check"></i> <span>{event.address}</span>.</li>
+          <li><i className="bi bi-check"></i> <span>{event.datetime}</span></li>
+          <li><i className="bi bi-check"></i> <span>${event.price}</span></li>
+        </ul>
+        <a href="#" className="btn btn-get-started align-self-start">Get Tickets</a>
+      </div>
+      
+    </div>
+   )}
+
+  </div>
+
+</section>
+
     );
 }
