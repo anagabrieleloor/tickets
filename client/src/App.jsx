@@ -39,7 +39,7 @@ function App() {
       <Route>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<AllEvents />} />
-        <Route path="/post_event" element={<EventForm token={token} user_id={user_id} />} />
+        <Route path="/events/post_event" element={<EventForm token={token} user_id={user_id} />} />
         <Route path="/events/:event_id" element={<EventDetails />} />
         <Route path="/tickets/:ticket_id" element={<TicketDetails />} />
         <Route path="/users/login" element={<Login token={token} setToken={setToken} user_id={user_id} />} />

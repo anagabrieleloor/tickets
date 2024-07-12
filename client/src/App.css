@@ -2838,3 +2838,37 @@
 	color: color-mix(in srgb, var(--default-color), transparent 60%);
 	font-size: 14px;
   }
+
+  /* EventForm */
+form {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	margin: 0 auto;
+  }
+  
+  label {
+	margin-bottom: 10px;
+  }
+  
+  input, textarea {
+	width: 100%;
+	padding: 8px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	box-sizing: border-box;
+  }
+  
+  button {
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+  }
+  
+  button:hover {
+	background-color: #45a049;
+  }
+  
