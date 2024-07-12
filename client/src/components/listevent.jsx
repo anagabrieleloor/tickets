@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { createEvent } from "../api/events";
 
 const EventForm = () => {
@@ -16,6 +17,8 @@ const EventForm = () => {
     price: ''
   });
 
+  const navigate = useNavigate(); 
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -29,10 +32,10 @@ const EventForm = () => {
     try {
       const result = await createEvent(formData);
       console.log('Event created', result);
-      // Handle successful event creation, e.g., redirect or show a success message
+      navigate(`/events/${result.event_id}`);
     } catch (error) {
       console.error('Error creating event', error);
-      // Handle error, e.g., show an error message
+   
     }
   };
 
