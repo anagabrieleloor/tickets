@@ -10,6 +10,7 @@ export default function EventDetails() {
     const { event_id } = useParams();
     const [event, setEvent] = useState(null);
     const [error, setError] = useState(null);
+    const [showPayment, setShowPayment] = useState(false);
 
     useEffect(() => {
         async function getEventDetails() {
@@ -60,14 +61,17 @@ export default function EventDetails() {
           <li><i className="bi bi-check"></i> <span>{event.datetime}</span></li>
           <li><i className="bi bi-check"></i> <span>${event.price}</span></li>
         </ul>
-        <a href="#" className="btn btn-get-started align-self-start">Get Tickets</a>
-      </div>
-      
+        <button onClick={() => setShowPayment(true)} className="btn btn-get-started align-self-start">Get Tickets</button>
+      </div>      
     </div>
    )}
-
   </div>
 
+  {showPayment && event && (
+                <div className="container">
+                    <StripeContainer event={event} />
+                </div>
+            )}
 </section>
 
     );

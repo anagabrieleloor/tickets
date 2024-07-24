@@ -44,29 +44,51 @@ app.use(cors());
 // );
 
 app.post("/payment", cors(), async (req, res) => {
-	let { amount, id } = req.body
-	try {
-		const payment = await stripe.paymentIntents.create({
-			amount,
-			currency: "USD",
-			description: "Event Ticket",
-			payment_method: id,
-			confirm: true,
-            return_url: "http://localhost:8080/api/tickets/success"
-		})
-		console.log("Payment", payment)
-		res.json({
-			message: "Payment successful",
-			success: true
-		})
-	} catch (error) {
-		console.log("Error", error)
-		res.json({
-			message: "Payment failed",
-			success: false
-		})
-	}
-})
+    let { amount, id, event_id, user_id } = req.body;
+    try {
+        const payment = await stripe.paymentIntents.create({
+            amount,
+            currency: "USD",
+            description: "Event Ticket",
+            payment_method: id,
+            confirm: true,
+            return_url: "http://localhost:8080/api/tickets/success" // Ensure this is the correct URL for your flow
+        });
+        console.log("Payment", payment);
+        
+        // Create a ticket in the database after successful payment
+        const ticket = await client.query(
+            `
+            INSERT INTO tickets(available, resale, "user", event)
+            VALUES($1, $2, $3, $4)
+            RETURNING *;
+            `,
+            [true, false, user_id, event_id]
+        );
+
+        // Decrement available_tickets count
+        await client.query(
+            `
+            UPDATE events
+            SET available_tickets = available_tickets - 1
+            WHERE event_id = $1;
+            `,
+            [event_id]
+        );
+
+        res.json({
+            message: "Payment successful",
+            success: true,
+            ticket: ticket.rows[0] // Return the created ticket
+        });
+    } catch (error) {
+        console.log("Error", error);
+        res.json({
+            message: "Payment failed",
+            success: false
+        });
+    }
+});
 
 app.get('/', (req, res) => {
     res.send('Hello World!');

@@ -57,18 +57,27 @@ const getTicketByEventId = async (event_id) => {
 };
 
 // GET - /api/tickets/:user_id
+// server/db/helpers/tickets.js
 const getTicketByUserId = async (user_id) => {
     try {
-        const { rows: [ticket] } = await client.query(`
-            SELECT * 
-            FROM tickets
-            WHERE "user" = $1;
+        const { rows } = await client.query(`
+            SELECT t.*, e.name AS event_name, e.datetime AS event_datetime
+            FROM tickets t
+            JOIN events e ON t.event = e.event_id
+            WHERE t."user" = $1
+            ORDER BY e.datetime;
         `, [user_id]);
-        return ticket;
+
+        const now = new Date();
+        const upcomingEvents = rows.filter(ticket => new Date(ticket.event_datetime) > now);
+        const pastEvents = rows.filter(ticket => new Date(ticket.event_datetime) <= now);
+
+        return { upcomingEvents, pastEvents };
     } catch (error) {
         throw error;
     }
 };
+
 
 // GET - /api/tickets/:ticket_id
 const getTicketByTicketId = async (ticket_id) => {

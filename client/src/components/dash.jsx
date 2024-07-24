@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchSingleUser } from "../api/users";
+import { getUserTickets } from "../api/tickets";
 
 export default function Dashboard({token, user_id}) {
   const [user, setUser] = useState(null);

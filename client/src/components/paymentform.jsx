@@ -1,3 +1,4 @@
+// paymentform.jsx
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import axios from "axios"
 import React, { useState } from 'react'
@@ -22,39 +23,39 @@ const CARD_OPTIONS = {
     }
 }
 
-export default function PaymentForm() {
+export default function PaymentForm({ event }) {
     const [success, setSuccess] = useState(false);
     const stripe = useStripe();
     const elements = useElements();
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const {error, paymentMethod} = await stripe.createPaymentMethod({
             type: "card",
             card: elements.getElement(CardElement)
-        })
+        });
 
+        if(!error) {
+            try {
+                const {id} = paymentMethod;
+                const response = await axios.post("http://localhost:8088/payment", {
+                    amount: event.price * 100, // Stripe expects the amount in cents
+                    id,
+                    event_id: event.event_id,
+                });
 
-    if(!error) {
-        try {
-            const {id} = paymentMethod
-            const response = await axios.post("http://localhost:8088/payment", {
-                amount: 1000,
-                id
-            })
+                if(response.data.success) {
+                    console.log("Successful payment");
+                    setSuccess(true);
+                }
 
-            if(response.data.success) {
-                console.log("Successful payment")
-                setSuccess(true)
+            } catch (error) {
+                console.log("Error", error);
             }
-
-        } catch (error) {
-            console.log("Error", error)
+        } else {
+            console.log(error.message);
         }
-    } else {
-        console.log(error.message)
     }
-}
 
     return (
         <>
@@ -69,7 +70,7 @@ export default function PaymentForm() {
                 </form>
                 :
                 <div>
-                    <h2>You just bought a ticket!</h2>
+                    <h2>You just bought a ticket for {event.name}!</h2>
                 </div>
             }
         </>

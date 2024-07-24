@@ -53,12 +53,32 @@ export async function createTicket(available, price, resale, user, event) {
   }
 
      //Get ticket by user_id
-     export async function getTicketByUserId(user_id) {
-        const resp = await fetch(`${BASE_URL}/tickets/${user_id}`);
-        const json = await resp.json();
-        console.log("Ticket:", json)
-        return json;
+     export async function getUserTickets(user_id, token) {
+      try {
+        const response = await fetch(`${BASE_URL}/tickets/user/${user_id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          }
+        });
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Failed to fetch tickets");
+        }
+      } catch (error) {
+        console.error(error);
       }
+    }
+    //  export async function getTicketByUserId(user_id) {
+    //     const resp = await fetch(`${BASE_URL}/tickets/user/${user_id}`);
+    //     const json = await resp.json();
+    //     console.log("Tickets:", json)
+    //     return json;
+    //   }
+
+
   //Delete event
   export async function deleteEvent(event_id) {
     try {
